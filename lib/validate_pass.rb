@@ -6,8 +6,7 @@ module ValidatePass
   class Error < StandardError; end
   def initialize(pass)
 
-    @pass = pass
-    validate(@pass)
+    validate(pass)
   end
   def validate(password)
 
@@ -15,6 +14,6 @@ module ValidatePass
 
     expression = /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[*\-!$@#\^%])[A-Za-z\d*\-!$@#\^%]{8,}$/
 
-    is_valid = true if (password =~ expression) == 0
+    is_valid = true if (password =~ expression).zero?
   end
 end
