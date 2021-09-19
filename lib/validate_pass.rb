@@ -16,6 +16,6 @@ module ValidatePass
 
     is_valid = true if (password =~ expression).zero?
 
-    return is_valid
+    is_valid
   end
 end
