@@ -3,19 +3,17 @@
 require_relative "validate_pass/version"
 
 module ValidatePass
-  class Error < StandardError; end
+  class IsValid
+    attr_reader :password
 
-  def initialize(pass)
-    validate(pass)
-  end
+    def validate(password)
+      is_valid = false
 
-  def validate(password)
-    is_valid = false
+      expression = /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[*\-!$@#\^%])[A-Za-z\d*\-!$@#\^%]{8,}$/
 
-    expression = /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[*\-!$@#\^%])[A-Za-z\d*\-!$@#\^%]{8,}$/
+      is_valid = true if (password =~ expression) == 0
 
-    is_valid = true if (password =~ expression).zero?
-
-    is_valid
+      is_valid
+    end
   end
 end
