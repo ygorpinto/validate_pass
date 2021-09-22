@@ -7,7 +7,10 @@ RSpec.describe ValidatePass do
   it "is a valid password" do
     expect(ValidatePass::IsValid.new.validate("NGz!08cj%aL")).to be true
   end
-  it "is not a valid password" do
+  it "is not a valid password, sequential" do
     expect(ValidatePass::IsValid.new.validate("amor12345")).to be false
+  end
+  it "is not a valid password, special chat missing" do
+    expect(ValidatePass::IsValid.new.validate("Amor4cjS83")).to be false
   end
 end
