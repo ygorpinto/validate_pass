@@ -14,6 +14,29 @@ Style/RedundantReturn:
 Style/NumericPredicate:
   Enabled: false
 
+Style/WhileUntilDo:
+  Enabled: false
+
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enbaled: false
+
+Metrics/BlockNesting:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Naming/PredicateName:
+  Enabled: false
+
+
+
 Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
