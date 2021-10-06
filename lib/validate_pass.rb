@@ -10,7 +10,7 @@ module ValidatePass
       is_valid = false
       expression = /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[*\-!$@#\^%])[A-Za-z\d*\-!$@#\^%]{8,}$/
       is_valid = true if (password =~ expression) == 0
-      is_valid = is_valid && !has_duplicated(password)
+      is_valid = is_valid && !has_duplicated(password) && !has_sequential(password)
       return is_valid
     end
 

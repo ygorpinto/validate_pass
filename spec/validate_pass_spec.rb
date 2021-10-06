@@ -16,4 +16,7 @@ RSpec.describe ValidatePass do
   it "is not a valid password, have more than 2 duplicated characters" do
     expect(ValidatePass::IsValid.new.validate("Aotttabbbssssr4@cjS83")).to be false
   end
+  it "is not a valid password, have sequential numbers" do
+    expect(ValidatePass::IsValid.new.validate("NGz!08cj%aL1234")).to be false
+  end
 end
