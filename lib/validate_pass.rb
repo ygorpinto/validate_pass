@@ -6,11 +6,17 @@ module ValidatePass
   class IsValid
     attr_reader :password
 
-    def validate(password)
+    def initialize(pass, max_allowed_dup = 2, max_allowed_seq = 2)
+      @password = pass
+      @max_allowed_dup = max_allowed_dup
+      @max_allowed_seq = max_allowed_seq
+    end
+
+    def validate
       is_valid = false
       expression = /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[*\-!$@#\^%])[A-Za-z\d*\-!$@#\^%]{8,}$/
-      is_valid = true if (password =~ expression) == 0
-      is_valid = is_valid && !has_duplicated(password) && !has_sequential(password)
+      is_valid = true if (@password =~ expression) == 0
+      is_valid = is_valid && !has_duplicated(@password) && !has_sequential(@password)
       return is_valid
     end
 
