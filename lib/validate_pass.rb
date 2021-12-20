@@ -47,15 +47,12 @@ module ValidatePass
     def has_duplicated(password)
       max_allowed_duplicated = 2
       result = false
-      count = 0
-      i = 1
+      count = Hash.new(0)
+      i = 0
       while i < password.length() do
-        if password[i - 1] == password[i]
-          count += 1
-          return true if count > max_allowed_duplicated.to_i
-        else
-          count = 0
-        end
+        count[password[i]] += 1
+        return true if count[password[i]] > max_allowed_duplicated.to_i
+
         i += 1
       end
       return result
